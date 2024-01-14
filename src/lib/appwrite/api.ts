@@ -56,8 +56,17 @@ export async function saveUserToDB(user: {
 export async function signInAccount(user: { email: string; password: string }) {
   try {
     const session = await account.createEmailSession(user.email, user.password)
-    localStorage.setItem("sessionId", session.userId)
-    return session
+    return [session, null]
+  } catch (error) {
+    console.log(error)
+    return [null, error]
+  }
+}
+
+export async function signOutAccount() {
+  try {
+    const session = await account.deleteSession('current')
+    return [session]
   } catch (error) {
     console.log(error)
   }
@@ -65,11 +74,11 @@ export async function signInAccount(user: { email: string; password: string }) {
 
 export async function getAccount() {
   try {
-    const currentAccount = await account.get();
+    const currentAccount = await account.get()
 
-    return currentAccount;
+    return currentAccount
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 }
 
@@ -82,9 +91,9 @@ export async function getCurrentUser() {
     const currentUser = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
-      [Query.equal('accountId', currentAccount.$id)],
+      [Query.equal('accountId', currentAccount.$id)]
     )
-    
+
     if (!currentUser) throw Error('Current user does not exist.')
 
     return currentUser.documents[0]
