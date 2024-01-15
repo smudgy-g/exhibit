@@ -2,7 +2,7 @@ import { useUserContext } from '@/components/context/AuthContext'
 import { Outlet, Navigate } from 'react-router-dom'
 
 const AuthLayout = () => {
-  const isAuthenticated = useUserContext()
+  const { isAuthenticated } = useUserContext()
 
   return (
     <>
