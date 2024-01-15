@@ -66,7 +66,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
 
   return (
     <div className="flex justify-between items-center z-20">
-      <div className="flex gap-2">
+      <div className="flex gap-">
         <img
           height={20}
           width={20}
@@ -80,7 +80,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
           onClick={handleLikePost}
         />
 
-        <p className="small-medium lg:base-medium">{likes.length}</p>
+        <p className="small-medium lg:base-medium">{likes.length > 0 && likes.length}</p>
       </div>
       <div className="flex gap-2">
         {isSavingPost || isDeletingSaved ? (

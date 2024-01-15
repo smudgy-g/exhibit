@@ -139,7 +139,7 @@
   }
 
   .explore-search {
-    @apply h-12 border-none placeholder:text-zinc-600 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
+    @apply h-12 bg-white border-slate-800 placeholder:text-zinc-600 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-aqua rounded-none font-['Courier_Prime'] !important;
   }
 
   /* Home */
@@ -222,7 +222,7 @@
   }
 
   .grid-post_user {
-    @apply absolute bottom-0 p-5 flex-between w-full bg-gradient-to-t from-black to-transparent rounded-b-[24px] gap-2;
+    @apply absolute bottom-0 p-5 flex-between w-full text-white bg-gradient-to-t from-black to-transparent rounded-b-[24px] gap-2;
   }
 
   /* Left sidebar */
@@ -231,7 +231,11 @@
   }
 
   .leftsidebar-link {
-    @apply base-medium hover:border hover:border-pink hover:shadow-sm hover:shadow-aqua transition;
+    @apply base-medium border border-white hover:border-pink shadow-sm shadow-white hover:shadow-aqua transition;
+  }
+
+  .link-active {
+    @apply border border-pink shadow-sm shadow-aqua !important
   }
 
   /* Post Card */
@@ -266,11 +270,11 @@
   }
 
   .shad-input {
-    @apply h-12 bg-white border-slate-800 placeholder:text-zinc-600 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-black rounded-none font-['Courier_Prime'] !important;
+    @apply h-12 bg-white border-slate-800 placeholder:text-zinc-600 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-aqua rounded-none font-['Courier_Prime'] !important;
   }
 
   .shad-textarea {
-    @apply h-36 bg-white border-slate-800 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-black rounded-none font-['Courier_Prime'] !important;
+    @apply h-36 bg-white border-slate-800 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-aqua rounded-none font-['Courier_Prime'] !important;
   }
 
   /* Button */

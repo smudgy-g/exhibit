@@ -13,7 +13,7 @@ const BottomBar = () => {
             to={link.route}
             key={link.label}
             className={`${
-              isActive && 'border border-pink shadow-sm shadow-aqua'
+              isActive && 'link-active'
             } flex-center flex-col gap-1 p-2 transition`}
           >
             <img
