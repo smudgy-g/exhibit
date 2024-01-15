@@ -65,11 +65,14 @@ const SigninForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <h1 className="text-4xl font-bold">SnapBook</h1>
+        <img
+          src="/assets/images/logo.png"
+          alt="logo"
+        />
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Sign in to your account
         </h2>
-        <p className="text-light-3 small-medium md:base-regular mt-2">
+        <p className="small-medium md:base-regular mt-2">
           Welcome back! Please enter your details.
         </p>
 
@@ -123,7 +126,7 @@ const SigninForm = () => {
               'Sign In'
             )}
           </Button>
-          <p className="small-semibold text-light-2 mt-2 text-center">
+          <p className="small-semibold mt-2 text-center">
             Dont have an account?
             <Link
               to="/sign-up"

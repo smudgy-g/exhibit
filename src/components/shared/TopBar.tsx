@@ -18,20 +18,20 @@ const TopBar = () => {
 
   return (
     <section className="topbar">
-      <div className="flex-between py-4 px-5">
+      <div className="flex-between py-3 px-5">
         <Link
           to="/"
           className="flex gap-3 items-center"
         >
-          <h1 className="text-2xl font-bold text-primary-500">SnapBook</h1>
+          <img src="/assets/images/logo.png" alt="logo" width={170}/>
         </Link>
 
         <div className="flex gap-4">
-          <Button variant={'ghost'} className="shad-button_ghost text-primary-500" onClick={() => signOut()}>
-            <IoMdLogOut className="h-8 w-8" />
+          <Button className="shad-button_ghost" onClick={() => signOut()}>
+            <IoMdLogOut className="h-6 w-6" />
           </Button>
           <Link to={`/profile/${user.id}`} className="flex gap-3">
-            <img src={user.imageUrl} alt="Profile" className="h-8 rounded-full"/>
+            <img src={user.imageUrl} alt="Profile" className="h-9"/>
           </Link>
           
         </div>

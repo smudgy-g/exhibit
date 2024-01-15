@@ -1,6 +1,5 @@
 import { bottombarLinks } from '@/constants'
 import { INavLink } from '@/types'
-import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const BottomBar = () => {
@@ -14,7 +13,7 @@ const BottomBar = () => {
             to={link.route}
             key={link.label}
             className={`${
-              isActive && 'bg-primary-500 rounded-xl'
+              isActive && 'border border-pink shadow-sm shadow-aqua'
             } flex-center flex-col gap-1 p-2 transition`}
           >
             <img
@@ -22,9 +21,8 @@ const BottomBar = () => {
               alt={link.label}
               width={16}
               height={16}
-              className={`${isActive && 'invert-white'}`}
             />
-            <p className="tiny-medium text-light-2">{link.label}</p>
+            <p className="tiny-medium">{link.label}</p>
           </Link>
         )
       })}

@@ -41,7 +41,6 @@ const SignupForm = () => {
 
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
     const newUser = await createUserAccount(values)
-    console.log(newUser)
 
     if (!newUser) {
       return toast({
@@ -75,11 +74,14 @@ const SignupForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <h1 className="text-4xl font-bold">SnapBook</h1>
+        <img
+          src="/assets/images/logo.png"
+          alt="logo"
+        />
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Create a new account
         </h2>
-        <p className="text-light-3 small-medium md:base-regular mt-2">
+        <p className="small-medium md:base-regular mt-2">
           To use SnapBook, please enter your details.
         </p>
 
@@ -167,7 +169,7 @@ const SignupForm = () => {
               'Sign Up'
             )}
           </Button>
-          <p className="small-semibold text-light-2 mt-2 text-center">
+          <p className="small-semibold mt-2 text-center">
             Already have an account?
             <Link
               to="/sign-in"
