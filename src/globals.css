@@ -161,7 +161,7 @@
   }
 
   .post_details-card {
-    @apply bg-white border-2 border-pink ring-1 ring-black shadow-md shadow-aqua w-full max-w-5xl rounded-[30px] flex-col flex xl:flex-row border xl:rounded-l-[24px];
+    @apply bg-white border-2 border-pink ring-1 ring-black shadow-md shadow-aqua w-full max-w-5xl rounded-[30px] flex-col flex xl:flex-row xl:rounded-l-[24px];
   }
 
   .post_details-img {
