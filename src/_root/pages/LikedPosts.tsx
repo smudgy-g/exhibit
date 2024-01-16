@@ -5,7 +5,6 @@ import { Models } from "appwrite"
 
 const LikedPosts = () => {
   const { data: currentUser } = useGetCurrentUser()
-  console.log(currentUser)
   const likedPosts = currentUser?.liked as Models.Document[]
 
   if (!currentUser) return <Loader />
