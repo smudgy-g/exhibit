@@ -12,7 +12,6 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom'
-import { LikedPosts } from '.'
 
 const UserStat = ({ value, label }: { value: number; label: string }) => {
   return (
@@ -118,7 +117,7 @@ const Profile = () => {
           <Link
             to={`/profile/${id}/liked-posts`}
             className={`profile-tab ${
-              pathname === `/profile/${id}/liked-posts` && "!link-active"
+              pathname === `/profile/${id}/liked-posts` && '!link-active'
             }`}
           >
             <img
@@ -144,7 +143,12 @@ const Profile = () => {
         {userData.$id === currentUser.id && (
           <Route
             path="/liked-posts"
-            element={<LikedPosts />}
+            element={
+              <GridPostList
+                posts={userData.liked}
+                showStats={false}
+              />
+            }
           />
         )}
       </Routes>
