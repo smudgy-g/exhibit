@@ -1,4 +1,5 @@
 # Exhibit - Social Media Platform
+[Live Demo}(https://exhibit-one.vercel.app/)
 
 Exhibit is a social media platform inspired by Instagram. Users can sign up, sign in, create, like, edit, save, and delete posts, as well as maintain their profiles. The app features a feed, and users can search for posts.
 
