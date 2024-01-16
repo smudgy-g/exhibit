@@ -45,7 +45,7 @@ const SigninForm = () => {
       toast({
         title: message,
       })
-      return
+      return session
     }
 
     const isLoggedIn = await checkAuthUser()
@@ -126,11 +126,11 @@ const SigninForm = () => {
               'Sign In'
             )}
           </Button>
-          <p className="small-semibold mt-2 text-center">
+          <p className="small-semibold mt-2 text-center font-['Courier_Prime']">
             Dont have an account?
             <Link
               to="/sign-up"
-              className="text-primary-500 ml-1 small-regular"
+              className="text-pink ml-1 small-regular"
             >
               Sign up!
             </Link>

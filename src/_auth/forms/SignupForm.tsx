@@ -82,7 +82,7 @@ const SignupForm = () => {
           Create a new account
         </h2>
         <p className="small-medium md:base-regular mt-2">
-          To use SnapBook, please enter your details.
+          To use exhibit, please enter your details.
         </p>
 
         <form
@@ -169,11 +169,11 @@ const SignupForm = () => {
               'Sign Up'
             )}
           </Button>
-          <p className="small-semibold mt-2 text-center">
+          <p className="small-semibold mt-2 text-center font-['Courier_Prime']">
             Already have an account?
             <Link
               to="/sign-in"
-              className="text-primary-500 ml-1 small-regular"
+              className="text-pink ml-1 small-regular"
             >
               Log in
             </Link>
