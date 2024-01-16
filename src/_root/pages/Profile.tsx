@@ -31,7 +31,6 @@ const Profile = () => {
   const { data: userData, isError } = useGetUserById(id as string)
 
   if (!userData) return <Loader />
-  userData.bio2 = 'Hello u am adam'
   return (
     <div className="profile-container">
       {isError && <p className="font-['Courier_Prime']">No user found.</p>}
@@ -67,7 +66,7 @@ const Profile = () => {
               />
             </div>
             <p className="small-medium md:base-medium text-center xl:text-left mt-7 max-w-screen-sm">
-              {userData.bio2}
+              {userData.bio}
             </p>
           </div>
           <div className="flex justify-center gap-4">
