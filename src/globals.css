@@ -254,7 +254,7 @@
 
   /* User card */
   .user-card {
-    @apply flex-center flex-col gap-4 border rounded-[20px] px-5 py-8;
+    @apply flex-center flex-col gap-4 px-5 py-8 border-2 border-pink ring-1 ring-black shadow-md shadow-aqua;
   }
 }
 
