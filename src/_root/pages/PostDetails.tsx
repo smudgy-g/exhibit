@@ -2,35 +2,43 @@ import { useUserContext } from '@/components/context/AuthContext'
 import Loader from '@/components/shared/Loader'
 import PostStats from '@/components/shared/PostStats'
 import { Button } from '@/components/ui/button'
-import { useGetPostById } from '@/lib/queries'
+import { useDeletePost, useGetPostById } from '@/lib/queries'
 import { multiFormatDateString } from '@/lib/utils'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 const PostDetails = () => {
   const { id } = useParams()
   const { data: post, isPending } = useGetPostById(id as string)
   const { user } = useUserContext()
+  const { mutate: deletePost, isPending: isDeletingPost } = useDeletePost()
+  const navigate = useNavigate()
 
+  const handleDeletePost = () => {
+    deletePost({
+      postId: post!.$id,
+      imageId: post!.imageId,
+    })
+    navigate('/')
+  }
   return (
     <div className="post_details-container">
-      {isPending ? (
-        <Loader />
-      ) : (
+      {isPending || (isDeletingPost && <Loader />)}
+      {post && (
         <div className="post_details-card">
           <img
-            src={post?.imageUrl}
+            src={post.imageUrl}
             alt="creator"
             className="post_details-img"
           />
           <div className="post_details-info">
             <div className="flex-between w-full">
               <Link
-                to={`/profil/${post?.creator.$id}`}
+                to={`/profil/${post.creator.$id}`}
                 className="flex items-center gap-3"
               >
                 <img
                   src={
-                    post?.creator?.imageUrl ||
+                    post.creator.imageUrl ||
                     '/assets/icons/profile-placeholder.svg'
                   }
                   alt="creator"
@@ -38,11 +46,11 @@ const PostDetails = () => {
                 />
                 <div className="flex flex-col gap-1">
                   <p className="base-medium lg:body-bold">
-                    {post?.creator.name}
+                    {post.creator.name}
                   </p>
                   <div className="flex flex-col gap-1">
                     <p className="subtle-semibold lg:small-regular">
-                      {multiFormatDateString(post?.$createdAt)}
+                      {multiFormatDateString(post.$createdAt)}
                     </p>
                     <p className="subtle-semibold lg:small-regular">
                       {post?.location}
@@ -53,8 +61,8 @@ const PostDetails = () => {
 
               <div className="flex-center gap-4">
                 <Link
-                  to={`/update-post/${post?.$id}`}
-                  className={`${user.id !== post?.creator.$id && 'hidden'}`}
+                  to={`/update-post/${post.$id}`}
+                  className={`${user.id !== post.creator.$id && 'hidden'}`}
                 >
                   <img
                     src="/assets/icons/edit.svg"
@@ -67,9 +75,9 @@ const PostDetails = () => {
                   type="button"
                   variant={'ghost'}
                   className={`post_details-delete_btn ${
-                    user.id !== post?.creator.$id && 'hidden'
+                    user.id !== post.creator.$id && 'hidden'
                   }`}
-                  // onClick={handleDeletePost}
+                  onClick={handleDeletePost}
                 >
                   <img
                     src="/assets/icons/delete.svg"
@@ -82,15 +90,22 @@ const PostDetails = () => {
             </div>
             <hr className="border w-full border-black" />
             <div className="flex flex-col flex-1 w-full small-medium lg:base-medium py-5">
-              <p>{post?.caption}</p>
+              <p>{post.caption}</p>
               <ul className="flex gap-1 mt-2 font-['Courier_Prime']">
-                {post?.tags.map((tag: string) => (
+                {post.tags.map((tag: string) => (
                   <li key={tag}>#{tag}</li>
                 ))}
               </ul>
             </div>
 
-            <div className="w-full">{post && <PostStats post={post} userId={user.id} />}</div>
+            <div className="w-full">
+              {post && (
+                <PostStats
+                  post={post}
+                  userId={user.id}
+                />
+              )}
+            </div>
           </div>
         </div>
       )}

@@ -66,7 +66,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
 
   return (
     <div className="flex justify-between items-center z-20">
-      <div className="flex gap-">
+      <div className="flex gap-2 mr-5">
         <img
           height={20}
           width={20}
