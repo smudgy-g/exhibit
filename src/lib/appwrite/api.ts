@@ -323,6 +323,7 @@ export async function deletePost(postId: string, imageId: string) {
 }
 
 export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const queries: any[] = [Query.orderDesc('$updatedAt'), Query.limit(10)]
 
   if (pageParam) {
@@ -358,3 +359,17 @@ export async function searchPosts(searchTerm: string) {
   }
 }
 
+export async function getUserById(userId: string) {
+  try {
+    const user = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.userCollectionId,
+      [Query.equal('$id', userId)]
+    )
+    if (!user) throw Error(`No user found with id: ${userId}`)
+
+    return user.documents[0]
+  } catch (error) {
+    console.log(error)
+  }
+}
