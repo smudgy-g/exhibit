@@ -1,7 +1,6 @@
 import { ID, Permission, Query, Role } from 'appwrite'
 import { INewPost, INewUser, IUpdatePost } from '@/types'
 import { account, appwriteConfig, avatars, databases, storage } from './config'
-import { UploadIcon } from '@radix-ui/react-icons'
 
 export async function createUserAccount(user: INewUser) {
   try {
@@ -358,3 +357,4 @@ export async function searchPosts(searchTerm: string) {
     console.log(error)
   }
 }
+

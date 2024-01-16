@@ -4,7 +4,6 @@ import { useUserContext } from '../context/AuthContext'
 import { sidebarLinks } from '@/constants'
 import { INavLink } from '@/types'
 import { useSignOutAccount } from '@/lib/queries'
-import { IoMdLogOut } from 'react-icons/io'
 import { Button } from '../ui/button'
 
 const LeftSideBar = () => {
@@ -26,7 +25,11 @@ const LeftSideBar = () => {
           to="/"
           className="flex gap-3 items-center"
         >
-          <img src="/assets/images/logo.png" alt="logo" width={200} />
+          <img
+            src="/assets/images/logo.png"
+            alt="logo"
+            width={200}
+          />
         </Link>
         <Link
           to={`/profile/${user.id}`}
@@ -39,7 +42,9 @@ const LeftSideBar = () => {
           />
           <div className="flex flex-col">
             <p className="text-2xl">{user.name}</p>
-            <p className="small-regular font-['Courier_Prime']">@{user.username}</p>
+            <p className="small-regular font-['Courier_Prime']">
+              @{user.username}
+            </p>
           </div>
         </Link>
 
@@ -72,7 +77,10 @@ const LeftSideBar = () => {
         className="shad-button_ghost"
         onClick={() => signOut()}
       >
-        <IoMdLogOut className="h-6 w-6" />
+        <img
+          src="/assets/icons/logout.svg"
+          alt="logout"
+        />
         <p className="small-medium lg:base-medium">Logout</p>
       </Button>
     </nav>

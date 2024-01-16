@@ -1,9 +1,11 @@
-import { FaSpinner } from 'react-icons/fa'
-
 const Loader = () => {
   return (
     <div className="flex-center w-full">
-      <FaSpinner className="animate-spin" />
+      <img
+        src="/assets/icons/loader.svg"
+        className="animate-spin"
+        width={24} height={24}
+      />
     </div>
   )
 }
